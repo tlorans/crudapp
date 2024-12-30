@@ -64,6 +64,53 @@ export type Crudapp = {
       ]
     },
     {
+      "name": "deleteJournalEntry",
+      "discriminator": [
+        156,
+        50,
+        93,
+        5,
+        157,
+        97,
+        188,
+        114
+      ],
+      "accounts": [
+        {
+          "name": "journalEntry",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "journal_entry.title",
+                "account": "journalEntryState"
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "systemProgram",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "title",
+          "type": "string"
+        }
+      ]
+    },
+    {
       "name": "updateJournalEntry",
       "discriminator": [
         113,
